@@ -1,4 +1,10 @@
 export default function Contact() {
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    alert('Tidak bisa mengirim pesan untuk saat ini');
+  }
+
   return (
     <section
       id="contact"
@@ -66,6 +72,7 @@ export default function Contact() {
               <button
                 id="button-form"
                 className="text-base font-semibold text-white bg-primary py-3 px-6 rounded-full w-full hover:opacity-80 hover:shadow-lg transition duration-500"
+                onClick={(e) => {handleFormSubmit(e)}}
               >
                 Send
               </button>
