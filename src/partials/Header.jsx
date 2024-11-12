@@ -1,23 +1,24 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(
     localStorage.theme === "dark" ||
-      (!("theme" in localStorage) &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches)
+    (!("theme" in localStorage) &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches)
   );
   const [isFixedNav, setIsFixedNav] = useState(false);
+  
+  const menuRef = useRef(null); // Reference untuk menu
+  const hamburgerRef = useRef(null); // Reference untuk tombol hamburger
 
-  const toggleHamburger = () => setIsMenuOpen(!isMenuOpen);
+  const toggleHamburger = () => setIsMenuOpen((prev) => !prev);
 
   const handleDarkModeToggle = () => {
     setIsDarkMode((prevMode) => !prevMode);
-    document.body.classList.toggle('dark');
   };
 
   useEffect(() => {
-    // Menangani navbar tetap saat scroll
     const handleScroll = () => {
       const header = document.querySelector("header");
       setIsFixedNav(window.pageYOffset > header.offsetTop);
@@ -30,7 +31,6 @@ export default function Header() {
   }, []);
 
   useEffect(() => {
-    // Sinkronisasi isDarkMode dengan localStorage dan elemen HTML
     if (isDarkMode) {
       document.documentElement.classList.add("dark");
       localStorage.setItem("theme", "dark");
@@ -39,6 +39,28 @@ export default function Header() {
       localStorage.setItem("theme", "light");
     }
   }, [isDarkMode]);
+
+  useEffect(() => {
+    // Menutup menu saat mengklik di luar area menu
+    const handleClickOutside = (event) => {
+      if (
+        menuRef.current && !menuRef.current.contains(event.target) &&
+        hamburgerRef.current && !hamburgerRef.current.contains(event.target)
+      ) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    if (isMenuOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isMenuOpen]);
 
   return (
     <header
@@ -49,15 +71,13 @@ export default function Header() {
       <div className="container">
         <div className="flex items-center justify-between relative">
           <div className="px-4">
-            <a
-              href="#home"
-              className="font-bold text-3xl text-primary block py-6 uppercase"
-            >
+            <a href="#home" className="font-bold text-3xl text-primary block py-6 uppercase">
               MDN
             </a>
           </div>
           <div className="flex items-center px-4">
             <button
+              ref={hamburgerRef} // Assign ref untuk tombol hamburger
               id="hamburger"
               type="button"
               className={`block absolute right-4 lg:hidden ${
@@ -72,20 +92,13 @@ export default function Header() {
 
             <nav
               id="nav-menu"
+              ref={menuRef} // Assign ref untuk menu
               className={`absolute py-5 bg-white shadow-lg rounded-lg max-w-[250px] w-full right-4 top-full lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none lg:rounded-none ${
                 isMenuOpen ? "" : "hidden"
               } dark:bg-dark dark:shadow-slate-800 lg:dark:bg-transparent`}
             >
               <ul className="block lg:flex">
-                {[
-                  "Home",
-                  "About Me",
-                  "Portofolio",
-                  "Experience",
-                  "Blog",
-                  "Gallery",
-                  "Contact",
-                ].map((item, index) => (
+                {["Home", "About", "Portofolio", "Experience", "Blog", "Gallery", "Contact"].map((item, index) => (
                   <li className="group" key={index}>
                     <a
                       href={`#${item.toLowerCase().replace(" ", "-")}`}

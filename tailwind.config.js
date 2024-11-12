@@ -4,7 +4,7 @@ export default {
     "./index.html", 
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
-  darkmode: "class",
+  darkMode: "class",
   theme: {
     container: {
       center: true,

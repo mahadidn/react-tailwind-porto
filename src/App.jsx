@@ -13,16 +13,17 @@ function App() {
   const [showToTopButton, setShowToTopButton] = useState(false);
 
   useEffect(() => {
+
+    document.documentElement.classList.add('scroll-smooth');
+
     // Mengatur tema saat pertama kali aplikasi dimuat
     if (
       localStorage.theme === 'dark' ||
       (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
     ) {
-      // document.documentElement.classList.add('dark');
-      document.body.classList.toggle('dark');
+      document.documentElement.classList.add('dark');
     } else {
-      // document.documentElement.classList.remove('dark');
-      document.body.classList.toggle('dark');
+      document.documentElement.classList.remove('dark');
     }
 
     // Menampilkan tombol "to top" saat scroll
@@ -34,6 +35,16 @@ function App() {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
+
+  }, []);
+
+  useEffect(() => {
+    
+
+    return () => {
+      document.documentElement.classList.remove('scroll-smooth');
+    };
+
   }, []);
 
   return (
