@@ -7,7 +7,7 @@ import Footer from "./partials/Footer";
 import Gallery from "./partials/Gallery";
 import Header from "./partials/Header";
 import Home from "./partials/Home";
-import Portofolio from "./Portofolio";
+import Portofolio from "./partials/Portofolio";
 
 function App() {
   const [showToTopButton, setShowToTopButton] = useState(false);

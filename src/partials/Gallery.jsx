@@ -23,34 +23,34 @@ export default function Gallery() {
             <span className="self-end dark:text-white">@mahadi_dn</span>
           </div>
           <div className="group grid-card">
-            <div className="grid-card-img bg-[url('/dist/img/grid/furina.jpeg')] " />
+            <div className="grid-card-img bg-[url('/img/grid/furina.jpeg')] " />
           </div>
           <div className="group grid-card md:col-start-3 ">
-            <div className="grid-card-img bg-[url('/dist/img/grid/marin.jpeg')] " />
+            <div className="grid-card-img bg-[url('img/grid/marin.jpeg')] " />
           </div>
           <div className="group grid-card">
-            <div className="grid-card-img bg-[url('/dist/img/grid/me1.jpeg')] " />
+            <div className="grid-card-img bg-[url('/img/grid/me1.jpeg')] " />
           </div>
           <div className="group grid-card">
-            <div className="grid-card-img bg-[url('/dist/img/grid/me2.jpeg')] " />
+            <div className="grid-card-img bg-[url('/img/grid/me2.jpeg')] " />
           </div>
           <div className="group grid-card md:col-start-3">
-            <div className="grid-card-img bg-[url('/dist/img/grid/frieren2.jpeg')] " />
+            <div className="grid-card-img bg-[url('/img/grid/frieren2.jpeg')] " />
           </div>
           <div className="group grid-card md:col-start-2">
-            <div className="grid-card-img bg-[url('/dist/img/grid/furina2.jpeg')] " />
+            <div className="grid-card-img bg-[url('/img/grid/furina2.jpeg')] " />
           </div>
           <div className="group grid-card md:col-start-4">
-            <div className="grid-card-img bg-[url('/dist/img/grid/me5.jpeg')] " />
+            <div className="grid-card-img bg-[url('/img/grid/me5.jpeg')] " />
           </div>
           <div className="group grid-card">
-            <div className="grid-card-img bg-[url('/dist/img/grid/me3.jpeg')] " />
+            <div className="grid-card-img bg-[url('/img/grid/me3.jpeg')] " />
           </div>
           <div className="group grid-card md:col-start-3">
-            <div className="grid-card-img bg-[url('/dist/img/grid/ryo.jpeg')] " />
+            <div className="grid-card-img bg-[url('/img/grid/ryo.jpeg')] " />
           </div>
           <div className="group grid-card md:col-start-3">
-            <div className="grid-card-img bg-[url('/dist/img/grid/furina3.jpeg')] " />
+            <div className="grid-card-img bg-[url('/img/grid/bocchi.jpeg')] " />
           </div>
         </div>
       </div>

@@ -103,6 +103,7 @@ export default function Header() {
                     <a
                       href={`#${item.toLowerCase().replace(" ", "-")}`}
                       className="text-base text-dark py-2 mx-8 flex group-hover:text-primary dark:text-white"
+                      onClick={() => setIsMenuOpen((prev) => !prev)}
                     >
                       {item}
                     </a>

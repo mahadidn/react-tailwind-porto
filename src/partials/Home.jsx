@@ -1,3 +1,5 @@
+import profilePic from '../assets/img/mdn.jpeg';
+
 export default function Home() {
   return (
     <section id="home" className="pt-36 dark:bg-dark">
@@ -21,7 +23,7 @@ export default function Home() {
           <div className="w-full self-end px-4 lg:w-1/2">
             <div className="relative mt-10 lg:mt-9 lg:right-0">
               <img
-                src="dist/img/mdnd.jpeg"
+                src={profilePic}
                 width={400}
                 alt="Mahadi Dwi Nugraha"
                 className="max-w-full mx-auto rounded-full border-4 border-primary"

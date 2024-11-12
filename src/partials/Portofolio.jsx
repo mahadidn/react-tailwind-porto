@@ -1,3 +1,6 @@
+import ami from '../assets/img/portofolio/ami.png';
+import restkominfo from '../assets/img/portofolio/restapikominfo.png';
+
 export default function Portofolio() {
   return (
     <section
@@ -22,7 +25,7 @@ export default function Portofolio() {
           <div className="mb-12 p-4 md:w-1/2">
             <div className="rounded-md shadow-md overflow-hidden">
               <img
-                src="dist/img/portofolio/ami.png"
+                src={ami}
                 alt="audit mutu internal"
                 width="w-full"
               />
@@ -39,7 +42,7 @@ export default function Portofolio() {
           <div className="mb-12 p-4 md:w-1/2">
             <div className="rounded-md shadow-md overflow-hidden">
               <img
-                src="dist/img/portofolio/restapikominfo.png"
+                src={restkominfo}
                 alt="REST API KOMINFO"
                 width="w-full"
               />
